@@ -1,0 +1,6 @@
+{% extends "administration/base.html" %} {% block title%} Student Dashboard
+{%endblock%} {%block body%}
+
+<h1>This is the body of the dashboard page for administration portal</h1>
+<a href="{% url 'students:student_dashboard' %}">student_dashboard</a>
+{%endblock%}

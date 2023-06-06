@@ -1,0 +1,30 @@
+# Byte-compiled / optimized Python files
+*.pyc
+__pycache__/
+
+# Django development server
+*.log
+*.pot
+*.py[cod]
+
+# Python virtual environment
+venv/
+env/
+
+# SQLite database file
+*.db
+
+# Media files
+media/
+
+# Static files
+static/
+
+# Secret key file (if using a separate file)
+*.secret_key
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
