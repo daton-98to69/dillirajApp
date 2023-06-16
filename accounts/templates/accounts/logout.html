@@ -1,0 +1,8 @@
+{% extends 'accounts/base.html' %} {%block title%}Logout-View {%endblock%} {%block body %}
+<h2>You have been logged out!</h2>
+<div class="border-top pt-3">
+	<small>
+		<a class="ml-2" href="{% url 'login' %}">Login In Again</a>
+	</small>
+</div>
+{%endblock %}

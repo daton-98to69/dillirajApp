@@ -4,9 +4,18 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import RegistrationForm
 from .forms import LoginForm
+from django.contrib.auth.decorators import login_required
 
 
-def login_view(request):
+@login_required
+def home(request):
+    context = {
+        'user': request.user
+    }
+    return render(request, "accounts/home.html", context)
+
+
+def login_view(request):  # Need to redirect to home page.
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -17,9 +26,9 @@ def login_view(request):
                 login(request, user)
                 # Replace 'home' with the URL name of your home page
                 if user.role == "admin":
-                    return redirect("admin_dashboard")
+                    return redirect("administration:admin_dashboard")
                 elif user.role == "student":
-                    return redirect("admin_dashboard")
+                    return redirect("administration:admin_dashboard")
                 else:
                     return HttpResponse(f"Is other: Loggedin, {user.lastname},{user.role}")
             else:
@@ -40,4 +49,4 @@ def register(request):
             return HttpResponse("User Created")
     else:
         form = RegistrationForm()
-        return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
