@@ -1,0 +1,61 @@
+/* Contents */
+/* side_navbar, main_body, */
+/* We can specify :root --(name:value) for variables, and use var(--name) to use the value. */
+:root {
+    --primary-color: #ff0000;
+    --bg_color: rgb(240, 240, 240);
+    --background_color: red;
+  }
+
+body{
+    display: block;
+    margin: 0;
+    background-color: var(--bg_color);
+}
+
+.side_navbar{
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    box-shadow: none;
+    z-index: 1040;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 17rem;
+    
+}
+.nav_logo{
+    height: 3rem;
+    padding: 1.5rem 2rem;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  
+  .nav-item:hover {
+    border-color: #999999;
+    transform: translateY(-5px);
+  }
+  
+  .nav-item i {
+    font-size: 18px;
+  }
+  
+  .nav-item .text {
+    margin-top: 5px;
+  }
+.main_body{
+    display: block;
+    margin-left: 19rem;
+}

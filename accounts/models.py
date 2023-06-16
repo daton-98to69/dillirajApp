@@ -5,14 +5,10 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 
 class CustomUser(AbstractUser):
-    ADMIN = 'admin'
-    SUB_ADMIN = 'sub_admin'
     STUDENT = 'student'
     TEACHER = 'teacher'
 
     ROLE_CHOICES = (
-        (ADMIN, 'Admin'),
-        (SUB_ADMIN, 'Sub Admin'),
         (STUDENT, 'Student'),
         (TEACHER, 'Teacher'),
     )
@@ -26,6 +22,9 @@ class CustomUser(AbstractUser):
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     # Additional fields specific to each role
     # Additional fields and methods
+
+    def __str__(self):
+        return f'{self.firstname}-{self.school_unique_id}'
 
     def is_admin(self):
         return self.role == self.ADMIN

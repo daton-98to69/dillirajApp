@@ -19,7 +19,7 @@ media/
 
 # Static files
 static/
-
+reference_Skidlify/
 # Secret key file (if using a separate file)
 *.secret_key
 
