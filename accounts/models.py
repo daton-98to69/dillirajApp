@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from PIL import Image
 # Groups can be created to specify various permission to different types of users.
+from django.utils import timezone
 
 
 class CustomUser(AbstractUser):
