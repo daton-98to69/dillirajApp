@@ -28,7 +28,7 @@
 					<li><a href="#">Support</a></li>
 				</ul>
 
-				{% else %} Do you have a question? {% endif %}
+				{% else %} <br /><br /><br />Do you have a question? {% endif %}
 
 				<div class="additional-features">
 					{% if user.is_authenticated %}
@@ -43,7 +43,12 @@
 			</nav>
 			<div class="content">
 				<!-- Your page content goes here -->
-
+				<!-- The if statement for messages is responsible for loading 
+        various alert messages in homepage -->
+				{% if messages %} {%for message in messages%}
+				<div class="alert alert-{{message.tags}}">{{message}}</div>
+				{%endfor %} {% endif %}
+				<!--  -->
 				<h2>Welcome to Dilliraj Secondary App</h2>
 				<p>This is the content area where your page content will be shown.</p>
 				{%block body %} {%endblock%}

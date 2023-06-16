@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .forms import RegistrationForm
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required
@@ -25,14 +26,17 @@ def login_view(request):  # Need to redirect to home page.
             if user is not None:
                 login(request, user)
                 # Replace 'home' with the URL name of your home page
-                if user.role == "admin":
-                    return redirect("administration:admin_dashboard")
-                elif user.role == "student":
-                    return redirect("administration:admin_dashboard")
-                else:
-                    return HttpResponse(f"Is other: Loggedin, {user.lastname},{user.role}")
+                # if user.role == "admin":
+                #     return redirect("administration:admin_dashboard")
+                # elif user.role == "student":
+                #     return redirect("administration:admin_dashboard")
+                # else:
+                #     # Replace 'home' with the desired redirect URL after login
+                return redirect('homepage')
             else:
                 form.add_error(None, 'Invalid username or password.')
+                messages.error(request, 'Invalid username or password.')
+
     else:
         form = LoginForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -46,7 +50,11 @@ def register(request):
             form.save()
             # Perform any additional actions, such as sending a confirmation email, etc.
             # Redirect to the desired page after successful registration
-            return HttpResponse("User Created")
+            username = form.cleaned_data.get('username')
+            messages.success(
+                request, f"Your account has been created!  {username}")
+            return redirect('login')
+
     else:
         form = RegistrationForm()
     return render(request, 'accounts/register.html', {'form': form})
