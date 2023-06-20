@@ -15,3 +15,13 @@ class Staff(models.Model):
 
     def __str__(self):
         return f'{self.user.firstname} {self.teachers_unique_id}'
+
+
+class Announcement(models.Model):
+    title = models.CharField(max_length=300)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    is_public = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title

@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %} {% block title%} Admin announcement 
+{%endblock%} {% block body %}
+{% for announcement in announce %}
+<div class="annouce_div">
+	<h2>{{ announcement.title }}</h2>
+	<p>{{ announcement.content }}</p>
+	<p>Created at: {{ announcement.date_posted | date:"F d, Y" }}</p>
+</div>
+{% empty %}
+<p>No public announcements found.</p>
+{% endfor %}
+
+<a href="{% url 'homepage' %}">Back</a>
+{%endblock%}

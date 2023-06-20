@@ -5,21 +5,21 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="{% static 'registration/register.css' %}" />
-		<link rel="stylesheet" href="{% static 'registration/base.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/register.css' %}" />
+		<link rel="stylesheet" href="{% static 'accounts/base.css' %}" />
 		<title>{%block title%}Base Layout{%endblock%}</title>
 	</head>
 	<body>
 		<div class="container">
 			<nav class="navbar">
 				<div class="logo">
-					<img src="{% static 'registration/images/school_logo.png' %}" alt="Logo" />
+					<img src="{% static 'accounts/images/school_logo.png' %}" alt="Logo" />
 					<h1>Dilliraj Secondary School</h1>
 				</div>
 				{% if user.is_authenticated %}
 				<ul class="nav-links">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
+					<li><a href="{% url 'homepage' %}">Home</a></li>
+					<li><a href="{% url 'administration:announcement' %}">Announcement</a></li>
 					<li><a href="#">Services</a></li>
 					<li><a href="#">Products</a></li>
 					<li><a href="#">Blog</a></li>
@@ -51,7 +51,7 @@
 				<!--  -->
 				<h2>Welcome to Dilliraj Secondary App</h2>
 				<p>This is the content area where your page content will be shown.</p>
-				{%block body %} {%endblock%}
+							{%block body %} {%endblock%}
 			</div>
 		</div>
 	</body>
