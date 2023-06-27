@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %} {%block title%}Login-View {%endblock%}
+{%block body %}
+
+<h2>Student_Information</h2>
+
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Create</button>
+</form>
+{%endblock %}

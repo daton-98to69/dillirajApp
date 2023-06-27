@@ -25,3 +25,21 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class School_Information(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    founded_year = models.PositiveIntegerField()
+    principal_name = models.CharField(max_length=100)
+    contact_email = models.EmailField()
+    contact_phone = models.CharField(max_length=20)
+    website = models.URLField()
+    description = models.TextField()
+    logo = models.ImageField(upload_to='school_logos/', null=True, blank=True)
+    total_students = models.PositiveIntegerField()
+    total_staff = models.PositiveIntegerField()
+    # Add more fields as per your requirements
+
+    def __str__(self):
+        return self.name

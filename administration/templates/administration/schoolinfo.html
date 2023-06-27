@@ -1,0 +1,15 @@
+{% extends "accounts/base.html" %} {% block title%} School Information
+{%endblock%} {% block body %}
+{% for school in school_info %}
+<div class="admin_container">
+    <h2>{{ school.name }}</h2>
+    <p>{{ school.address }}</p>
+</div>
+<div class="sub_container">
+
+</div>
+    
+        
+{% endfor %}
+<a href="{% url 'homepage' %}">Back</a>
+{%endblock%}

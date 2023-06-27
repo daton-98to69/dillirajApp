@@ -22,6 +22,7 @@ from accounts import views as account_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    path("bills/", include("bills.urls")),
     path("login/", account_views.login_view, name="login"),
     path("logout/", auth_views.LogoutView.as_view(template_name="accounts/logout.html"), name="logout"),
     path("", account_views.home, name="homepage"),

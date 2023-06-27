@@ -4,9 +4,16 @@ from django.http import FileResponse
 from reportlab.pdfgen import canvas
 from django.contrib.auth.decorators import login_required
 from accounts.models import CustomUser
-from .models import Announcement
+from .models import Announcement, School_Information
+from django.views.generic import DetailView, ListView
 
 # Create your views here.
+
+
+class SchoolInfo(ListView):
+    model = School_Information
+    template_name = "administration/schoolinfo.html"
+    context_object_name = "school_info"
 
 
 @login_required
