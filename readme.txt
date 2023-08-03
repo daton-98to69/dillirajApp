@@ -39,6 +39,17 @@ git reset: Resets the repository or undoes changes.
 git rm <file>: Removes a file from the repository.
 git mv <old-path> <new-path>: Moves or renames a file.
 
+Seeing a Different Branch in VS Code:
+
+Clone the repository using git clone <repository_url>
+Fetch the latest changes using git fetch
+Switch to the branch using git checkout <branch_name>
+Pull the branch changes using git pull origin <branch_name>
+Terminal Stops Working:
+
+Use git branch -r to list remote branches only
+Identify the branch created by your friend (starts with origin/)
+Use git checkout <branch_name> to switch to the branch
 
 _____________________ COMMON SEQUENCE OF OPERATIONS _____________________
 Clone the repository to your local machine: git clone <repository>

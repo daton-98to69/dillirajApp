@@ -18,7 +18,7 @@ class CustomUser(AbstractUser):
     lastname = models.CharField(max_length=30)
     email = models.EmailField(unique=True, null=True, blank=True)
     phonenumber = models.CharField(max_length=15, null=True, blank=True)
-    school_unique_id = models.CharField(max_length=50, unique=True)
+    school_unique_id = models.CharField(max_length=50, unique=True, null=True)
     date_of_birth = models.DateTimeField(null=True, blank=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     # Additional fields specific to each role
